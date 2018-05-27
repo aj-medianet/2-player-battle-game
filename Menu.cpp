@@ -123,7 +123,8 @@ void Menu::play() {
                 lineup1--;
             }
             
-            //test print of team1 lineup
+            //print of team1 lineup
+            cout << endl << "Team 1: ";
             team1.print();
             
             
@@ -180,7 +181,8 @@ void Menu::play() {
                 lineup2--;
             }
             
-            //test print of team2 lineup
+            //print of team2 lineup
+            cout << endl << "Team 2: ";
             team2.print();
             
             //while neither list is empty -> fight
@@ -210,18 +212,14 @@ void Menu::play() {
                 }
             }
             
-            //test prints
-            team1.print();
-            team2.print();
-            
             //if team1 container is empty, team 2 won
             if (team1.getHead() == NULL ) {
                 //team 2 wins
-                cout << endl << endl << "team2 wins" << endl << endl;
+                cout << endl << endl << "Team 2 Wins" << endl << endl;
             //if team2 container is empty, team 1 won
             } else {
                 //team 1 wins
-                cout << endl << endl << "team1 wins" << endl << endl;
+                cout << endl << endl << "Team 1 Wins" << endl << endl;
             }
             
             //print loser container?
@@ -250,8 +248,6 @@ void Menu::play() {
             while(losers.getHead() != NULL) {
                 losers.deleteHead();
             }
-            
-           
             
             //delete dynamic memeory
             delete c1;
