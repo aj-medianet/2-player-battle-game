@@ -13,14 +13,14 @@
 #include <string>
 #include "Character.hpp"
 
-using namespace std;
+
 
 class Vampire: public Character {
 private:
 public:
     Vampire();
     virtual void updateStrengthPoints(int damage);
-    string getType();
+    std::string getType();
     ~Vampire();
 };
 

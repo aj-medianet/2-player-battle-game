@@ -8,6 +8,7 @@
 
 #include "Menu.hpp"
 
+using namespace std;
 
 void Menu::play() {
     string input;
@@ -64,8 +65,15 @@ void Menu::play() {
              Create linked lists from number of fighters
              ******************************************/
             
+            //lineup 1 - create list, choose fighter type and set fighter name
+            while (lineup1 > 0) {
+                
+                
+                //decrement linup
+                lineup1--;
+            }
             
-            
+           
             
             //choose first fighter
             while (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {

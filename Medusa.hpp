@@ -13,7 +13,6 @@
 #include <string>
 #include "Character.hpp"
 
-using namespace std;
 
 class Medusa: public Character {
 private:
@@ -21,7 +20,7 @@ private:
 public:
     Medusa();
     int attack();
-    string getType();
+    std::string getType();
     ~Medusa();
 };
 

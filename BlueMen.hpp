@@ -13,7 +13,7 @@
 #include <string>
 #include "Character.hpp"
 
-using namespace std;
+
 
 class BlueMen: public Character {
 private:
@@ -22,7 +22,7 @@ public:
     BlueMen();
     virtual void setDefense();
     int getStrengthPoints();
-    string getType();
+    std::string getType();
     ~BlueMen();
 };
 

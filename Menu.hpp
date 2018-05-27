@@ -21,8 +21,6 @@
 #include "Medusa.hpp"
 #include "HarryPotter.hpp"
 
-using namespace std;
-
 class Menu {
 private:
     // fighter 1 and fighter 2
@@ -30,7 +28,7 @@ private:
     Character* c2;
 public:
     void play();    // main memu and sent to fight
-    bool checkDigits(string input); // integer validation
+    bool checkDigits(std::string input); // integer validation
     void fight(Character* c1, Character* c2); // send 2 fighters to fight
 };
 

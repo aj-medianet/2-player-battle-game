@@ -8,6 +8,8 @@
 
 #include "BlueMen.hpp"
 
+using namespace std;
+
 BlueMen::BlueMen() : Character(2, 10, 3, 6, 3, 12) {
     
 }

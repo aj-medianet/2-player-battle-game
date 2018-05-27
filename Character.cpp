@@ -8,6 +8,8 @@
 
 #include "Character.hpp"
 
+using namespace std;
+
 Character::Character(int attackDie, int attackDieSides, int defenseDie, int defenseDieSides, int armor, int strengthPoints) {
     setAttack(attackDie, attackDieSides);
     setDefense(defenseDie, defenseDieSides);
@@ -68,6 +70,14 @@ int Character::getStrengthPoints() {
 //subtract damage from strength points to get updated strength pints
 void Character::updateStrengthPoints(int damage) {
     this->strengthPoints -= damage;
+}
+
+void Character::setName(string name) {
+    this->name = name;
+}
+
+string Character::getName() {
+    return this->name;
 }
 
 Character::~Character() {

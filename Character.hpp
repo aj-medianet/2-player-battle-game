@@ -15,11 +15,11 @@
 #include <cstdlib>
 #include <ctime>
 
-using namespace std;
 
 class Character {
 private:
     int attackDie, attackDieSides, defenseDie, defenseDieSides, armor, strengthPoints;
+    std::string name;
 public:
     Character(int attackDie, int attackDieSides, int defenseDie, int defenseDieSides, int armor, int strengthPints);
     virtual int attack();
@@ -37,7 +37,11 @@ public:
     
     
     //returns type of character
-    virtual string getType(void) = 0;
+    virtual std::string getType(void) = 0;
+    
+    //set name and get name of character that user sets
+    void setName(std::string name);
+    std::string getName();
     
     
     virtual ~Character();

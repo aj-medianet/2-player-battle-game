@@ -8,6 +8,8 @@
 
 #include "HarryPotter.hpp"
 
+using namespace std;
+
 HarryPotter::HarryPotter() : Character(2, 6, 2, 6, 0, 10) {
     this->extraLife = true;
 }

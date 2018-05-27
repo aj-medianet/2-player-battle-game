@@ -13,14 +13,14 @@
 #include <string>
 #include "Character.hpp"
 
-using namespace std;
+
 
 class Barbarian: public Character {
 private:
     
 public:
     Barbarian();
-    string getType();
+    std::string getType();
     ~Barbarian();
 };
 

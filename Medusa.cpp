@@ -9,6 +9,8 @@
 
 #include "Medusa.hpp"
 
+using namespace std;
+
 Medusa::Medusa() : Character(2, 6, 1, 6, 3, 8) {
     
 }

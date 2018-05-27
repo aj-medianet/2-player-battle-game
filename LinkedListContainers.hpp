@@ -19,12 +19,11 @@ private:
     Node* tail;
 public:
     LinkedListContainers();
-    void addHead(int val);
-    void addTail(int val);
+    void addHead(Character* c);
+    void addTail(Character* c);
     void deleteHead();
     void deleteTail();
-    void traverseReverse();
-    void traverse();
+    void print();
     ~LinkedListContainers();
 };
 

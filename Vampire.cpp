@@ -8,6 +8,8 @@
 
 #include "Vampire.hpp"
 
+using namespace std;
+
 Vampire::Vampire() : Character(1, 12, 1, 6, 1, 18) {
     
 }

@@ -8,6 +8,8 @@
 
 #include "Barbarian.hpp"
 
+using namespace std;
+
 Barbarian::Barbarian() : Character(2, 6, 2, 6, 0 ,12) {
     
 }

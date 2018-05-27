@@ -14,7 +14,6 @@
 #include <string>
 #include "Character.hpp"
 
-using namespace std;
 
 class HarryPotter : public Character {
 private:
@@ -24,7 +23,7 @@ public:
     void useExtraLife();
     bool getExtraLife();
     void updateStrengthPoints(int damage);
-    string getType();
+    std::string getType();
     ~HarryPotter();
 };
 

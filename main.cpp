@@ -20,7 +20,6 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     Menu* m = new Menu();
     srand((unsigned)time(0)); //creates random once so can use multiple times
-
     //starts the game
     m->play();
     
