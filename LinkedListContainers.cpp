@@ -109,8 +109,12 @@ void LinkedListContainers::print() {
     cout << endl << endl;
 }
 
-Node* LinkedListContainers::getHead() {
-    return head;
+Character* LinkedListContainers::getHead() {
+    if (head != NULL) {
+        return &head->getVal();
+    } else {
+        return NULL;
+    }
 }
 
 

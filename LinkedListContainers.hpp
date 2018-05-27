@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "Node.hpp"
+#include "Character.hpp"
 
 class LinkedListContainers {
 private:
@@ -24,7 +25,7 @@ public:
     void deleteHead();
     void deleteTail();
     void print();
-    Node* getHead();
+    Character* getHead();
     ~LinkedListContainers();
 };
 

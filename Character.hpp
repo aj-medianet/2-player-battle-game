@@ -43,6 +43,8 @@ public:
     void setName(std::string name);
     std::string getName();
     
+    //increase strength points by 10 after winning battle
+    void increaseStrengthPoints();
     
     virtual ~Character();
 };

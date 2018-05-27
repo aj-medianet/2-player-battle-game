@@ -80,6 +80,13 @@ string Character::getName() {
     return this->name;
 }
 
+//gives character a bump in strength if they win a round
+void Character::increaseStrengthPoints() {
+    //adds 50% of current strength points to strength points
+    int bump = strengthPoints * (.5);
+    this->strengthPoints += bump;
+}
+
 Character::~Character() {
     
 }

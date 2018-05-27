@@ -67,6 +67,7 @@ void Menu::play() {
              ******************************************/
             
             //lineup 1 - create list, choose fighter type and set fighter name
+            cout << endl << "Team 1" << endl;
             while (lineup1 > 0) {
                 //reset menu choice
                 menuChoice = 0;
@@ -116,7 +117,7 @@ void Menu::play() {
                 c1->setName(input);
                 
                 //add fighter to container
-                team1.addHead(c1);
+                team1.addTail(c1);
 
                 //decrement lineup1
                 lineup1--;
@@ -125,6 +126,9 @@ void Menu::play() {
             //test print of team1 lineup
             team1.print();
             
+            
+            //lineup 2 - create list, choose fighter type and set fighter name
+            cout << endl << "Team 2" << endl;
             while (lineup2 > 0) {
                 //reset menu choice
                 menuChoice = 0;
@@ -170,7 +174,7 @@ void Menu::play() {
                 c2->setName(input);
                 
                 //add fighter to container
-                team2.addHead(c2);
+                team2.addTail(c2);
                 
                 //decrement lineup2
                 lineup2--;
@@ -179,16 +183,75 @@ void Menu::play() {
             //test print of team2 lineup
             team2.print();
             
-            // send players to fight
-            //fight(c1, c2);
-            
             //while neither list is empty -> fight
-            while (team1.getHead() != NULL || team2.getHead() != NULL) {
-                Node* team1Iter = team1.getHead();
-                Node* team2Ier = team2.getHead();
+            while (team1.getHead() != NULL && team2.getHead() != NULL) {
+                //create fighters from the head node
+                Character* fighter1 = team1.getHead();
+                Character* fighter2 = team2.getHead();
                 
+                //delete head node
+                team1.deleteHead();
+                team2.deleteHead();
                 
+                //send players to fight
+                fight(fighter1, fighter2);
+                
+                //fighter 1 dead - bump fighter 2 strength points, add fighter1 to losers, add fighter2 back to the tail of team2 container
+                if (fighter1->getStrengthPoints() <= 0) {
+                    fighter2->increaseStrengthPoints();
+                    losers.addTail(fighter1);
+                    team2.addTail(fighter2);
+                }
+                //fighter2 head - bump fighter 2 strength points, add fighter2 to losers, add fighter 1 back to tail of team 2 container
+                if (fighter2->getStrengthPoints() <= 0) {
+                    fighter1->increaseStrengthPoints();
+                    losers.addTail(fighter2);
+                    team1.addTail(fighter1);
+                }
             }
+            
+            //test prints
+            team1.print();
+            team2.print();
+            
+            //if team1 container is empty, team 2 won
+            if (team1.getHead() == NULL ) {
+                //team 2 wins
+                cout << endl << endl << "team2 wins" << endl << endl;
+            //if team2 container is empty, team 1 won
+            } else {
+                //team 1 wins
+                cout << endl << endl << "team1 wins" << endl << endl;
+            }
+            
+            //print loser container?
+            int loserPrint = 0;
+            while(!(loserPrint == 1 || loserPrint == 2)) {
+                cout << "1. Print Loser Pile" << endl << "2. Don't Print Loser Pile" << endl;
+                getline(cin, input);
+                if (checkDigits(input)) {
+                    stringstream(input) >> loserPrint;
+                }
+                if (!(loserPrint == 1 || loserPrint == 2)) {
+                    cout << "Invalid input. Choose 1 or 2" << endl;
+                }
+            }
+            if (loserPrint == 1) {
+                losers.print();
+            }
+            
+            //delete lists so user can play again if they want
+            while (team1.getHead() != NULL) {
+                team1.deleteHead();
+            }
+            while (team2.getHead() != NULL) {
+                team2.deleteHead();
+            }
+            while(losers.getHead() != NULL) {
+                losers.deleteHead();
+            }
+            
+           
             
             //delete dynamic memeory
             delete c1;
@@ -219,7 +282,7 @@ void Menu::fight(Character* c1, Character* c2) {
     int attackc1 = 0, defendc2 = 0, attackc2 = 0, defendc1 = 0;
     
     
-    cout << endl << endl << c1->getType() << " vs. " << c2->getType() << endl;
+    cout << endl << endl << c1->getType() << " (" << c1->getName() << ")" << " vs. " << c2->getType() << " (" << c2->getName() << ")" << endl;
     while (true) {
         round++;
         cout << endl << "--- Round " << round << " ---" << endl << endl;
@@ -246,7 +309,7 @@ void Menu::fight(Character* c1, Character* c2) {
         
         //if c2 is dead, break out of loop
         if (c2->getStrengthPoints() <= 0) {
-            cout << endl << "--- Character 1: " << c1->getType() << " has won ---" << endl << endl;
+            cout << endl << "--- Team 1: " << c1->getType() << " (" << c1->getName() << ")" << " has won ---" << endl << endl;
             break;
         }
         
@@ -271,7 +334,7 @@ void Menu::fight(Character* c1, Character* c2) {
         cout << "Defenders updated strength points: " << c1->getStrengthPoints() << endl;
         
         if (c1->getStrengthPoints() <= 0) {
-            cout << endl << "--- Character 2: " << c2->getType() << " has won ---" << endl << endl;
+            cout << endl << "--- Team 2: " << c2->getType() << " (" << c2->getName() << ")" << " has won ---" << endl << endl;
             break;
         }
     }
