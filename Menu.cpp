@@ -13,6 +13,7 @@ using namespace std;
 void Menu::play() {
     string input;
     int play = 0;
+    LinkedListContainers team1, team2;
     
     // prompt user to play or quit
     while(!(play == 1 || play == 2)) {
@@ -38,7 +39,7 @@ void Menu::play() {
              Choose number of fighters for each team
              ******************************************/
             while (!(lineup1 > 0)) {
-                cout << "Choose number of fighters for Team 1";
+                cout << "Choose number of fighters for Team 1: ";
                 getline(cin, input);
                 if (checkDigits(input) ) {
                     stringstream(input) >> lineup1;
@@ -50,7 +51,7 @@ void Menu::play() {
             }
             
             while (!(lineup2 > 0)) {
-                cout << "Choose number of fighters for Team 2";
+                cout << "Choose number of fighters for Team 2: ";
                 getline(cin, input);
                 if (checkDigits(input) ) {
                     stringstream(input) >> lineup2;
@@ -69,89 +70,110 @@ void Menu::play() {
             while (lineup1 > 0) {
                 
                 
-                //decrement linup
+              
+                
+                //choose first fighter
+                while (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
+                    cout << "Choose player 1 to fight" << endl;
+                    cout << "1. Vampire" << endl << "2. Barbarian" << endl << "3. Blue Man" << endl << "4. Medusa" << endl << "5. Harry Potter" << endl;
+                    getline(cin, input);
+                    if (checkDigits(input) ) {
+                        stringstream(input) >> menuChoice;
+                    }
+                    if (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
+                        cout << "Invalid input. Please choose 1, 2, 3, 4 or 5" << endl;
+                    }
+                }
+                
+                //create fighter 1
+                switch (menuChoice) {
+                    case 1: {
+                        c1 = new Vampire();
+                        break;
+                    }
+                    case 2: {
+                        c1 = new Barbarian();
+                        break;
+                    }
+                    case 3: {
+                        c1 = new BlueMen();
+                        break;
+                    }
+                    case 4: {
+                        c1 = new Medusa();
+                        break;
+                    }
+                    case 5: {
+                        c1 = new HarryPotter();
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                
+                //set name of fighter with user input
+                cout << "Enter name of fighter: ";
+                getline(cin, input);
+                c1->setName(input);
+                
+                //add fighter to container
+                
+                team1.addHead(c1);
+                
+                
+                //decrement lineup1
                 lineup1--;
             }
             
-           
+            while (lineup2 > 0) {
             
-            //choose first fighter
-            while (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
-                cout << "Choose player 1 to fight" << endl;
-                cout << "1. Vampire" << endl << "2. Barbarian" << endl << "3. Blue Man" << endl << "4. Medusa" << endl << "5. Harry Potter" << endl;
+                // choose second fighter
+                menuChoice = 0;
+                while (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
+                    cout << "Choose player 2 to fight" << endl;
+                    cout << "1. Vampire" << endl << "2. Barbarian" << endl << "3. Blue Man" << endl << "4. Medusa" << endl << "5. Harry Potter" << endl;
+                    getline(cin, input);
+                    if (checkDigits(input) ) {
+                        stringstream(input) >> menuChoice;
+                    }
+                    if (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
+                        cout << "Invalid input. Please choose 1, 2, 3, 4 or 5" << endl;
+                    }
+                }
+                
+                //create fighter 2
+                switch (menuChoice) {
+                    case 1:
+                        c2 = new Vampire();
+                        break;
+                    case 2:
+                        c2 = new Barbarian();
+                        break;
+                    case 3:
+                        c2 = new BlueMen();
+                        break;
+                    case 4:
+                        c2 = new Medusa();
+                        break;
+                    case 5:
+                        c2 = new HarryPotter();
+                        break;
+                    default:
+                        break;
+                }
+                
+                //enter name of fighter
+                cout << "Enter name of fighter: ";
                 getline(cin, input);
-                if (checkDigits(input) ) {
-                    stringstream(input) >> menuChoice;
-                }
-                if (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
-                    cout << "Invalid input. Please choose 1, 2, 3, 4 or 5" << endl;
-                }
-            }
-            
-            //create fighter 1
-            switch (menuChoice) {
-                case 1: {
-                    c1 = new Vampire();
-                    break;
-                }
-                case 2: {
-                    c1 = new Barbarian();
-                    break;
-                }
-                case 3: {
-                    c1 = new BlueMen();
-                    break;
-                }
-                case 4: {
-                    c1 = new Medusa();
-                    break;
-                }
-                case 5: {
-                    c1 = new HarryPotter();
-                    break;
-                }
-                default:
-                    break;
-            }
-            
-            // choose second fighter
-            menuChoice = 0;
-            while (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
-                cout << "Choose player 2 to fight" << endl;
-                cout << "1. Vampire" << endl << "2. Barbarian" << endl << "3. Blue Man" << endl << "4. Medusa" << endl << "5. Harry Potter" << endl;
-                getline(cin, input);
-                if (checkDigits(input) ) {
-                    stringstream(input) >> menuChoice;
-                }
-                if (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
-                    cout << "Invalid input. Please choose 1, 2, 3, 4 or 5" << endl;
-                }
-            }
-            
-            //create fighter 2
-            switch (menuChoice) {
-                case 1:
-                    c2 = new Vampire();
-                    break;
-                case 2:
-                    c2 = new Barbarian();
-                    break;
-                case 3:
-                    c2 = new BlueMen();
-                    break;
-                case 4:
-                    c2 = new Medusa();
-                    break;
-                case 5:
-                    c2 = new HarryPotter();
-                    break;
-                default:
-                    break;
+                
+                //decrement lineup2
+                lineup2--;
             }
             
             // send players to fight
             fight(c1, c2);
             
+            //delete dynamic memeory
             delete c1;
             delete c2;
             
