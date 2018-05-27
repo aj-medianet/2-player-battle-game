@@ -75,8 +75,6 @@ void LinkedListContainers::deleteHead() {
             delete deleteNode;
         }
     }
-    
-    
 }
 
 //deletes tail node

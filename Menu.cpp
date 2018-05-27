@@ -180,7 +180,7 @@ void Menu::play() {
             team2.print();
             
             // send players to fight
-            //fight(c1, c2);
+            fight(c1, c2);
             
             //delete dynamic memeory
             delete c1;
@@ -203,9 +203,6 @@ void Menu::play() {
             }
         }
     }
-    
-    
-
 }
 
 void Menu::fight(Character* c1, Character* c2) {
