@@ -1,9 +1,15 @@
 
-output: main.o Barbarian.o BlueMen.o Character.o HarryPotter.o Medusa.o Menu.o Vampire.o
-	g++ main.o Barbarian.o BlueMen.o Character.o HarryPotter.o Medusa.o Menu.o Vampire.o -o output
+output: main.o Node.o LinkedListContainers.o Barbarian.o BlueMen.o Character.o HarryPotter.o Medusa.o Menu.o Vampire.o
+	g++ main.o Node.o LinkedListContainers.o Barbarian.o BlueMen.o Character.o HarryPotter.o Medusa.o Menu.o Vampire.o -o output
 
 main.o: main.cpp
 	g++ -c main.cpp
+
+Node.o: Node.cpp Node.hpp
+	g++ -c Node.cpp
+
+LinkedListContainers.o: LinkedListContainers.cpp LinkedListContainers.hpp
+	g++ -c LinkedListContainers.cpp
 
 Barbarian.o: Barbarian.cpp Barbarian.hpp
 	g++ -c Barbarian.cpp	
