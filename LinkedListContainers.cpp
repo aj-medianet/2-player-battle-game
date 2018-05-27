@@ -109,8 +109,21 @@ void LinkedListContainers::print() {
     cout << endl << endl;
 }
 
+Node* LinkedListContainers::getHead() {
+    return head;
+}
+
 
 LinkedListContainers::~LinkedListContainers() {
+    Node* iter = head;
+    
+    // delete memory until reaches head
+    while (iter != head) {
+        delete &iter->getPrev();
+        iter = &iter->getNext();
+    }
+    // delete head
     delete head;
-    delete tail;
+    
+
 }

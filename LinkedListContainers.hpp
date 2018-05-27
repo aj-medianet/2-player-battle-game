@@ -24,6 +24,7 @@ public:
     void deleteHead();
     void deleteTail();
     void print();
+    Node* getHead();
     ~LinkedListContainers();
 };
 

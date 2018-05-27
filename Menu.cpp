@@ -13,7 +13,7 @@ using namespace std;
 void Menu::play() {
     string input;
     int play = 0;
-    LinkedListContainers team1, team2;
+    LinkedListContainers team1, team2, losers;
     
     // prompt user to play or quit
     while(!(play == 1 || play == 2)) {
@@ -180,7 +180,15 @@ void Menu::play() {
             team2.print();
             
             // send players to fight
-            fight(c1, c2);
+            //fight(c1, c2);
+            
+            //while neither list is empty -> fight
+            while (team1.getHead() != NULL || team2.getHead() != NULL) {
+                Node* team1Iter = team1.getHead();
+                Node* team2Ier = team2.getHead();
+                
+                
+            }
             
             //delete dynamic memeory
             delete c1;
