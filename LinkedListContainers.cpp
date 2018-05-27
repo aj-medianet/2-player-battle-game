@@ -104,7 +104,7 @@ void LinkedListContainers::print() {
     cout << endl << endl;
     if (head != NULL) {
         do {
-            cout << &iter->getVal() << " ";
+            cout << iter->getVal().getName() << " ";
             iter = &iter->getNext();
         } while(iter != head);
     }

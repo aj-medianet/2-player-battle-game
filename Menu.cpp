@@ -68,13 +68,12 @@ void Menu::play() {
             
             //lineup 1 - create list, choose fighter type and set fighter name
             while (lineup1 > 0) {
-                
-                
-              
-                
+                //reset menu choice
+                menuChoice = 0;
+
                 //choose first fighter
                 while (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
-                    cout << "Choose player 1 to fight" << endl;
+                    cout << endl << endl << "Choose type of character to fight" << endl;
                     cout << "1. Vampire" << endl << "2. Barbarian" << endl << "3. Blue Man" << endl << "4. Medusa" << endl << "5. Harry Potter" << endl;
                     getline(cin, input);
                     if (checkDigits(input) ) {
@@ -117,20 +116,23 @@ void Menu::play() {
                 c1->setName(input);
                 
                 //add fighter to container
-                
                 team1.addHead(c1);
-                
-                
+
                 //decrement lineup1
                 lineup1--;
             }
             
+            //test print of team1 lineup
+            team1.print();
+            
             while (lineup2 > 0) {
+                //reset menu choice
+                menuChoice = 0;
             
                 // choose second fighter
                 menuChoice = 0;
                 while (!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3 || menuChoice == 4 || menuChoice == 5)) {
-                    cout << "Choose player 2 to fight" << endl;
+                    cout << endl << endl << "Choose type of character to fight" << endl;
                     cout << "1. Vampire" << endl << "2. Barbarian" << endl << "3. Blue Man" << endl << "4. Medusa" << endl << "5. Harry Potter" << endl;
                     getline(cin, input);
                     if (checkDigits(input) ) {
@@ -162,16 +164,23 @@ void Menu::play() {
                         break;
                 }
                 
-                //enter name of fighter
+                //set name of fighter with user input
                 cout << "Enter name of fighter: ";
                 getline(cin, input);
+                c2->setName(input);
+                
+                //add fighter to container
+                team2.addHead(c2);
                 
                 //decrement lineup2
                 lineup2--;
             }
             
+            //test print of team2 lineup
+            team2.print();
+            
             // send players to fight
-            fight(c1, c2);
+            //fight(c1, c2);
             
             //delete dynamic memeory
             delete c1;
