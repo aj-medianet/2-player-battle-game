@@ -3,7 +3,9 @@ This is a 2 player command line battle game written in C++
 To download & play run these commands from a terminal:
 
 git clone git@github.com:aj-medianet/2-player-battle-game.git
+
 make
+
 ./output
 
 The game will look like this:
