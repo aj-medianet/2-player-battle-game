@@ -8,6 +8,8 @@ make
 
 ./output
 
+*************************************************************
+
 The game will look like this:
 
 1. Play
