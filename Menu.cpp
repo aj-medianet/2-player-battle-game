@@ -238,20 +238,25 @@ void Menu::play() {
                 losers.print();
             }
             
-            //delete lists so user can play again if they want
+            /*
+            delete lists so user can play again if they want
+            also deletes dynamically allocated character from each node
+            */
             while (team1.getHead() != NULL) {
+                Character* t1Delete = team1.getHead();
+                delete t1Delete;
                 team1.deleteHead();
             }
             while (team2.getHead() != NULL) {
+                Character* t2Delete = team2.getHead();
+                delete t2Delete;
                 team2.deleteHead();
             }
             while(losers.getHead() != NULL) {
+                Character* losersDelete = losers.getHead();
+                delete losersDelete;
                 losers.deleteHead();
             }
-            
-            //delete dynamic memeory
-            delete c1;
-            delete c2;
             
             // prompt user to play again or quit
             while(!(playAgain == 1 || playAgain == 2)) {
